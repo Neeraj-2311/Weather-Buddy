@@ -145,13 +145,6 @@ input#city:focus {
   font-size: 3vw;
   margin-top: 26px;
 }
-
-#temp-unit {
-  margin-top: 30px;
-  font-size: 2.5vw;
-  margin-left: 10px;
-}
-
 .values-list {
   list-style: none;
   font-size: 1.8vw;
@@ -216,10 +209,6 @@ input#city:focus {
   }
 
   #temp-value {
-    font-size: 4vw;
-  }
-
-  #temp-unit {
     font-size: 4vw;
   }
 
