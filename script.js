@@ -26,7 +26,7 @@ async function fetchText() {
   document.getElementById("city").setAttribute("value", data.city);
   loc.innerHTML = data.city;
 
-  fetch(`http://api.weatherapi.com/v1/forecast.json?key=781388e6fe3541f8b2e122014231402&q=${lat},${long}&days=6&aqi=no&alerts=no`)
+  fetch(`https://api.weatherapi.com/v1/forecast.json?key=781388e6fe3541f8b2e122014231402&q=${lat},${long}&days=6&aqi=no&alerts=no`)
     .then(response => response.json())
     .then(data => {
       let iter = 0;
@@ -68,7 +68,7 @@ function UpdateValues() {
 
     })
   //fetching forecast weather data from "WeatherApi"
-  fetch(`http://api.weatherapi.com/v1/forecast.json?key=781388e6fe3541f8b2e122014231402&q=${loc.innerHTML.trim()}&days=6&aqi=no&alerts=no`)
+  fetch(`https://api.weatherapi.com/v1/forecast.json?key=781388e6fe3541f8b2e122014231402&q=${loc.innerHTML.trim()}&days=6&aqi=no&alerts=no`)
     .then(response => response.json())
     .then(data => {
       let iter = 0;
