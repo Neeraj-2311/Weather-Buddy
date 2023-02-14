@@ -13,6 +13,8 @@
 🎃 Core HTML, CSS and JavaScript are used.
 
 
+
+
 🕵️‍♂️ This repository is open for improvement in search bar, to make use of geolocation google api for places search.
 
 🕵️‍♂️ Also anyone can improve the UI of this project.
