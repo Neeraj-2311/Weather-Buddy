@@ -60,7 +60,7 @@ function UpdateValues() {
     .then(data => {
 
       document.getElementById("climate-icon").setAttribute("src", "https://openweathermap.org/img/wn/" + data.weather[0].icon + "@2x.png")
-      document.getElementById("temp-value").textContent = Math.round(data.main.feels_like);
+      document.getElementById("temp-value").textContent = Math.round(data.main.feels_like)+" °C";
       document.getElementById("climate").textContent = data.weather[0].main;
       document.getElementById("windspeed").textContent = data.wind.speed;
       document.getElementById("humidity").textContent = data.main.humidity;
