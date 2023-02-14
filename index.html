@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Buddy</title>
+
+    <!--Stylesheet CSS file-->
+    <link rel="stylesheet" href="style.css">
+
+    <!--favicon-->
+    <link rel="shortcut icon" href="images/cloudy.png" type="image/x-icon">
+
+    <!--fontawesome kit-->
+    <script src="https://kit.fontawesome.com/f44356ef2f.js" crossorigin="anonymous"></script>
+
+    <!--google fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap" rel="stylesheet">
+
+    <!--script file-->
+</head>
+
+<body>
+    <section id="top-container">
+        <div class="row">
+            <div class="col-1">
+                <h1>Weather App</h1>
+                <p>Your essential guide to check before any trip!</p>
+                <p>Know about the weather of any part of the world while sitting in an another corner.</p>
+                <p>Just search the place in the search box below...</p>
+                <div class="search-bar">
+                    <input type="text" placeholder="Enter a city name..." id="city" />
+                    <button id="search-btn" onclick="getString()"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </div>
+                <ul class="list"></ul>
+            </div>
+            <div class="col-2">
+                <div class="city-container">
+                    <h1 id="city-value">Delhi</h1>
+                    <img id="climate-icon" src="images/sunny-day.png" alt="climate-icon">
+                </div>
+                <div class="weather-details">
+                    <span id="temp-value">----</span><span id="temp-unit"> °C</span>
+                    <ul class="values-list">
+                        <li><span class="value-text">Weather</span><span>:</span><span id="climate" class="values">
+                                ----</span></li>
+                        <li><span class="value-text">Windspeed</span><span>:</span><span id="windspeed" class="values">
+                                ----</span></li>
+                        <li><span class="value-text">Humidity</span><span>:</span><span id="humidity" class="values">
+                                ----</span></li>
+                        <li><span class="value-text">Pressure</span><span>:</span><span id="pressure" class="values">
+                                ----</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="mid-container">
+        <div class="forecast-section-heading">
+            <img src="images/cloudy.png" alt="cloud-icon">
+            <h2>5-days forecast</h2>
+            <img src="images/down-arrow.png" alt="down-arrow-icon">
+        </div>
+        <div class="mid-flex-container">
+            <div class="day-forecast-container" id="first-day">
+                <div class="day-tags-div">
+                    <p id="date-1">02/02/2023</p>
+                </div>
+                <div class="icon">
+                    <img id="icon-1-1" src="images/sunny-day.png" alt="">
+                </div>
+                <div class="icon">
+                    <img id="icon-1-2" src="images/sunny-day.png" alt="">
+                </div>
+                <div class="icon">
+                    <img id="icon-1-3" src="images/sunny-day.png" alt="">
+                </div>
+                <div class="icon">
+                    <img id="icon-1-4" src="images/sunny-day.png" alt="">
+                </div>
+                <div class="hourly-details-tags">
+                    <p>Time of day</p>
+                    <p>Feels like</p>
+                    <p>Windspeed</p>
+                    <p>Humidity</p>
+                    <p>Pressure</p>
+                    <p>Condition</p>
+                </div>
+                <div class="hourly-details">
+                    <p>Morning</p>
+                    <p id="detail-1-feels-like-1">----</p>
+                    <p id="detail-1-windspeed-1">----</p>
+                    <p id="detail-1-humidity-1">----</p>
+                    <p id="detail-1-pressure-1">----</p>
+                    <p id="detail-1-condition-1">----</p>
+                </div>
+                <div class="hourly-details">
+                    <p>Day</p>
+                    <p id="detail-1-feels-like-2">----</p>
+                    <p id="detail-1-windspeed-2">----</p>
+                    <p id="detail-1-humidity-2">----</p>
+                    <p id="detail-1-pressure-2">----</p>
+                    <p id="detail-1-condition-2">----</p>
+                </div>
+                <div class="hourly-details">
+                    <p>Evening</p>
+                    <p id="detail-1-feels-like-3">----</p>
+                    <p id="detail-1-windspeed-3">----</p>
+                    <p id="detail-1-humidity-3">----</p>
+                    <p id="detail-1-pressure-3">----</p>
+                    <p id="detail-1-condition-3">----</p>
+                </div>
+                <div class="hourly-details">
+                    <p>Night</p>
+                    <p id="detail-1-feels-like-4">----</p>
+                    <p id="detail-1-windspeed-4">----</p>
+                    <p id="detail-1-humidity-4">----</p>
+                    <p id="detail-1-pressure-4">----</p>
+                    <p id="detail-1-condition-4">----</p>
+                </div>
+            </div>
+            <div class="day-forecast-container" id="second-day">
+                <div class="day-tags-div">
+                    <p id="date-2">02/02/2023</p>
+                </div>
+                <div class="icon">
+                    <img id="icon-2-1" src="images/sunny-day.png" alt="">
+                </div>
+                <div class="icon">
+                    <img id="icon-2-2" src="images/sunny-day.png" alt="">
+                </div>
+                <div class="icon">
+                    <img id="icon-2-3" src="images/sunny-day.png" alt="">
+                </div>
+                <div class="icon">
+                    <img id="icon-2-4" src="images/sunny-day.png" alt="">
+                </div>
+                <div class="hourly-details-tags">
+                    <p>Time of day</p>
+                    <p>Feels like</p>
+                    <p>Windspeed</p>
+                    <p>Humidity</p>
+                    <p>Pressure</p>
+                    <p>Condition</p>
+                </div>
+                <div class="hourly-details">
+                    <p>Morning</p>
+                    <p id="detail-2-feels-like-1">----</p>
+                    <p id="detail-2-windspeed-1">----</p>
+                    <p id="detail-2-humidity-1">----</p>
+                    <p id="detail-2-pressure-1">----</p>
+                    <p id="detail-2-condition-1">----</p>
+                </div>
+                <div class="hourly-details">
+                    <p>Day</p>
+                    <p id="detail-2-feels-like-2">----</p>
+                    <p id="detail-2-windspeed-2">----</p>
+                    <p id="detail-2-humidity-2">----</p>
+                    <p id="detail-2-pressure-2">----</p>
+                    <p id="detail-2-condition-2">----</p>
+                </div>
+                <div class="hourly-details">
+                    <p>Evening</p>
+                    <p id="detail-2-feels-like-3">----</p>
+                    <p id="detail-2-windspeed-3">----</p>
+                    <p id="detail-2-humidity-3">----</p>
+                    <p id="detail-2-pressure-3">----</p>
+                    <p id="detail-2-condition-3">----</p>
+                </div>
+                <div class="hourly-details">
+                    <p>Night</p>
+                    <p id="detail-2-feels-like-4">----</p>
+                    <p id="detail-2-windspeed-4">----</p>
+                    <p id="detail-2-humidity-4">----</p>
+                    <p id="detail-2-pressure-4">----</p>
+                    <p id="detail-2-condition-4">----</p>
+                </div>
+            </div>
+            <div class="day-forecast-container" id="third-day">
+                <div class="day-tags-div">
+                    <p id="date-3">02/02/2023</p>
+                </div>
+                <div class="icon">
+                    <img id="icon-3-1" src="images/sunny-day.png" alt="">
+                </div>
+                <div class="icon">
+                    <img id="icon-3-2" src="images/sunny-day.png" alt="">
+                </div>
+                <div class="icon">
+                    <img id="icon-3-3" src="images/sunny-day.png" alt="">
+                </div>
+                <div class="icon">
+                    <img id="icon-3-4" src="images/sunny-day.png" alt="">
+                </div>
+                <div class="hourly-details-tags">
+                    <p>Time of day</p>
+                    <p>Feels like</p>
+                    <p>Windspeed</p>
+                    <p>Humidity</p>
+                    <p>Pressure</p>
+                    <p>Condition</p>
+                </div>
+                <div class="hourly-details">
+                    <p>Morning</p>
+                    <p id="detail-3-feels-like-1">----</p>
+                    <p id="detail-3-windspeed-1">----</p>
+                    <p id="detail-3-humidity-1">----</p>
+                    <p id="detail-3-pressure-1">----</p>
+                    <p id="detail-3-condition-1">----</p>
+                </div>
+                <div class="hourly-details">
+                    <p>Day</p>
+                    <p id="detail-3-feels-like-2">----</p>
+                    <p id="detail-3-windspeed-2">----</p>
+                    <p id="detail-3-humidity-2">----</p>
+                    <p id="detail-3-pressure-2">----</p>
+                    <p id="detail-3-condition-2">----</p>
+                </div>
+                <div class="hourly-details">
+                    <p>Evening</p>
+                    <p id="detail-3-feels-like-3">----</p>
+                    <p id="detail-3-windspeed-3">----</p>
+                    <p id="detail-3-humidity-3">----</p>
+                    <p id="detail-3-pressure-3">----</p>
+                    <p id="detail-3-condition-3">----</p>
+                </div>
+                <div class="hourly-details">
+                    <p>Night</p>
+                    <p id="detail-3-feels-like-4">----</p>
+                    <p id="detail-3-windspeed-4">----</p>
+                    <p id="detail-3-humidity-4">----</p>
+                    <p id="detail-3-pressure-4">----</p>
+                    <p id="detail-3-condition-4">----</p>
+                </div>
+            </div>
+            <div class="day-forecast-container" id="fourth-day">
+                <div class="day-tags-div">
+                    <p id="date-4">02/02/2023</p>
+                </div>
+                <div class="icon">
+                    <img id="icon-4-1" src="images/sunny-day.png" alt="">
+                </div>
+                <div class="icon">
+                    <img id="icon-4-2" src="images/sunny-day.png" alt="">
+                </div>
+                <div class="icon">
+                    <img id="icon-4-3" src="images/sunny-day.png" alt="">
+                </div>
+                <div class="icon">
+                    <img id="icon-4-4" src="images/sunny-day.png" alt="">
+                </div>
+                <div class="hourly-details-tags">
+                    <p>Time of day</p>
+                    <p>Feels like</p>
+                    <p>Windspeed</p>
+                    <p>Humidity</p>
+                    <p>Pressure</p>
+                    <p>Condition</p>
+                </div>
+                <div class="hourly-details">
+                    <p>Morning</p>
+                    <p id="detail-4-feels-like-1">----</p>
+                    <p id="detail-4-windspeed-1">----</p>
+                    <p id="detail-4-humidity-1">----</p>
+                    <p id="detail-4-pressure-1">----</p>
+                    <p id="detail-4-condition-1">----</p>
+                </div>
+                <div class="hourly-details">
+                    <p>Day</p>
+                    <p id="detail-4-feels-like-2">----</p>
+                    <p id="detail-4-windspeed-2">----</p>
+                    <p id="detail-4-humidity-2">----</p>
+                    <p id="detail-4-pressure-2">----</p>
+                    <p id="detail-4-condition-2">----</p>
+                </div>
+                <div class="hourly-details">
+                    <p>Evening</p>
+                    <p id="detail-4-feels-like-3">----</p>
+                    <p id="detail-4-windspeed-3">----</p>
+                    <p id="detail-4-humidity-3">----</p>
+                    <p id="detail-4-pressure-3">----</p>
+                    <p id="detail-4-condition-3">----</p>
+                </div>
+                <div class="hourly-details">
+                    <p>Night</p>
+                    <p id="detail-4-feels-like-4">----</p>
+                    <p id="detail-4-windspeed-4">----</p>
+                    <p id="detail-4-humidity-4">----</p>
+                    <p id="detail-4-pressure-4">----</p>
+                    <p id="detail-4-condition-4">----</p>
+                </div>
+            </div>
+            <div class="day-forecast-container" id="fifth-day">
+                <div class="day-tags-div">
+                    <p id="date-5">02/02/2023</p>
+                </div>
+                <div class="icon">
+                    <img id="icon-5-1" src="images/sunny-day.png" alt="">
+                </div>
+                <div class="icon">
+                    <img id="icon-5-2" src="images/sunny-day.png" alt="">
+                </div>
+                <div class="icon">
+                    <img id="icon-5-3" src="images/sunny-day.png" alt="">
+                </div>
+                <div class="icon">
+                    <img id="icon-5-4" src="images/sunny-day.png" alt="">
+                </div>
+                <div class="hourly-details-tags">
+                    <p>Time of day</p>
+                    <p>Feels like</p>
+                    <p>Windspeed</p>
+                    <p>Humidity</p>
+                    <p>Pressure</p>
+                    <p>Condition</p>
+                </div>
+                <div class="hourly-details">
+                    <p>Morning</p>
+                    <p id="detail-5-feels-like-1">----</p>
+                    <p id="detail-5-windspeed-1">----</p>
+                    <p id="detail-5-humidity-1">----</p>
+                    <p id="detail-5-pressure-1">----</p>
+                    <p id="detail-5-condition-1">----</p>
+                </div>
+                <div class="hourly-details">
+                    <p>Day</p>
+                    <p id="detail-5-feels-like-2">----</p>
+                    <p id="detail-5-windspeed-2">----</p>
+                    <p id="detail-5-humidity-2">----</p>
+                    <p id="detail-5-pressure-2">----</p>
+                    <p id="detail-5-condition-2">----</p>
+                </div>
+                <div class="hourly-details">
+                    <p>Evening</p>
+                    <p id="detail-5-feels-like-3">----</p>
+                    <p id="detail-5-windspeed-3">----</p>
+                    <p id="detail-5-humidity-3">----</p>
+                    <p id="detail-5-pressure-3">----</p>
+                    <p id="detail-5-condition-3">----</p>
+                </div>
+                <div class="hourly-details">
+                    <p>Night</p>
+                    <p id="detail-5-feels-like-4">----</p>
+                    <p id="detail-5-windspeed-4">----</p>
+                    <p id="detail-5-humidity-4">----</p>
+                    <p id="detail-5-pressure-4">----</p>
+                    <p id="detail-5-condition-4">----</p>
+                </div>
+            </div>
+        </div>
+        <div class="parameters">
+            <h4>Measurement</h4>
+            <div class="measurement-box">
+                <div class="measures">
+                    <p>Feels like</p>
+                    <p>Windspeed</p>
+                    <p>Humidity</p>
+                    <p>Pressure</p>
+                </div>
+                <div class="sign">
+                    <p> --- </p>
+                    <p> --- </p>
+                    <p> --- </p>
+                    <p> --- </p>
+                </div>
+                <div class="units">
+                    <p>temperature (in °C)</p>
+                    <p>in km/h</p>
+                    <p>g/kg</p>
+                    <p>in "Hg (inch mercury)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="bottom-container">
+        <div class="connect-text">
+            <p>You have reached the end of this page!</p>
+            <p>Liked my content? Want to collaborate on projects in future?...</p>
+            <p>...feel free to connect with me on Social.</p>
+        </div>
+        <a class="footer-link" href="https://www.linkedin.com/" target="_main"><i
+                class="fa-brands fa-linkedin"></i><span> LinkedIn</span></a>
+        <span>|</span>
+        <a class="footer-link" href="https://github.com/Neeraj-2311/" target="_main"><i
+                class="fa-brands fa-github"></i><span> Github</span></a>
+        <span>|</span>
+        <a class="footer-link" href="https://www.instagram.com/neeraj_sh2311/" target="_main"><i class="fa-brands
+                fa-square-instagram"></i><span> Instagram</span></a>
+        <p class="copyright">© Copyright Neeraj</p>
+    </section>
+
+    <!--script -->
+    <script src="script.js"></script>
+
+</body>
+
+</html>
