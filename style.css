@@ -297,6 +297,7 @@ input#city:focus {
 }
 
 .hourly-details-tags p {
+  border-top: 1px solid #9dc5ef;
   margin: 0;
   font-size: 1.2vw;
 }
