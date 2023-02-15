@@ -29,7 +29,7 @@ p {
   background-image: url("images/sunset-8k-forest-4k-wallpaper-preview.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  height: 100vh;
+  height: auto
 }
 
 .row {
@@ -145,6 +145,7 @@ input#city:focus {
   font-size: 3vw;
   margin-top: 26px;
 }
+
 .values-list {
   list-style: none;
   font-size: 1.8vw;
@@ -183,7 +184,7 @@ input#city:focus {
 
   .col-2 {
     margin-top: 40px;
-    width: 80%;
+    width: 90%;
     margin: auto;
     padding: 3vh;
   }
@@ -201,17 +202,18 @@ input#city:focus {
   .values-list {
     padding-left: 16%;
     border-left: none;
-    font-size: 2.2vw;
+    font-size: 2.4vw;
   }
 
   #city-value {
-    font-size: 4vw;
+    margin-left: 10%;
+    font-size: 5vw;
   }
 
   #temp-value {
-    font-size: 4vw;
+    margin-left: 10%;
+    font-size: 5vw;
   }
-
 }
 
 
@@ -243,7 +245,6 @@ input#city:focus {
 }
 
 .mid-flex-container {
-  /* background-image: url("images/sunset-8k-forest-4k-wallpaper-preview1.jpg"); */
   background-repeat: no-repeat;
   background-size: cover;
   background-color: #0087ff26;
@@ -278,7 +279,7 @@ input#city:focus {
 }
 
 .day-tags-div p {
-  font-size: 1.5vw;
+  font-size: 2vw;
 }
 
 .icon {
@@ -316,19 +317,19 @@ input#city:focus {
 
 @media (max-width: 900px) {
   .day-forecast-container {
-    width: 80%;
+    width: 95%;
   }
 
   .day-tags-div p {
-    font-size: 1.75vw;
+    font-size: 3vw;
   }
 
   .hourly-details-tags p {
-    font-size: 1.5vw;
+    font-size: 2.8vw;
   }
 
   .hourly-details p {
-    font-size: 1.5vw;
+    font-size: 2.8vw;
   }
 
 }
@@ -384,6 +385,7 @@ input#city:focus {
   font-family: 'Montserrat', sans-serif;
   margin: 10px 20px;
 }
+
 #bottom-container i {
   margin-right: 5px;
 }
