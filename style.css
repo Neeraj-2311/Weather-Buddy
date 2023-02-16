@@ -94,7 +94,7 @@ input#city {
   background-color: #dddddd;
 }
 
-#search-btn {
+.search-btn {
   text-align: center;
   width: 40px;
   height: 40px;
@@ -106,10 +106,13 @@ input#city {
   color: white;
 }
 
-#search-btn:hover {
-  background-color: black;
-  border: solid 2px aliceblue;
-  color: rgb(61, 122, 208);
+.search-btn-click {
+  background-color: rgba(141, 167, 233, 0.827);
+  color: rgb(0, 0, 0);
+  box-shadow:
+          0 6.7px 5.3px rgba(242, 240, 240, 0.12),
+          0 22.3px 17.9px rgba(248, 248, 248, 0.08),
+          0 100px 80px rgba(255, 255, 255, 0.04);
 }
 
 input#city:focus {
