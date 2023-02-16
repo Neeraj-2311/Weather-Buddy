@@ -26,6 +26,23 @@ async function fetchText() {
   document.getElementById("city").setAttribute("value", data.city);
   loc.innerHTML = data.city;
 
+  UpdateLive();
+
+  forecastByCoords();
+
+}
+
+// function to update data according to the searched place
+function UpdateValues() {
+
+  UpdateLive();
+
+  forecastByCity();
+}
+
+
+
+function forecastByCoords() {
   fetch(`https://api.weatherapi.com/v1/forecast.json?key=781388e6fe3541f8b2e122014231402&q=${lat},${long}&days=6&aqi=no&alerts=no`)
     .then(response => response.json())
     .then(data => {
@@ -49,25 +66,7 @@ async function fetchText() {
     })
 }
 
-// function to fetch data from weather api
-function UpdateValues() {
-  //fetching current weather data from "OpenWeatherMap Api"
-  const api = `https://api.openweathermap.org/data/2.5/weather?q=${loc.innerHTML.trim()}&units=metric&appid=6fed26cbc5510bbe3eb54a31c98dc61e&lang=en`
-  fetch(api)
-    .then((Response) => {
-      return Response.json();
-    })
-    .then(data => {
-
-      document.getElementById("climate-icon").setAttribute("src", "https://openweathermap.org/img/wn/" + data.weather[0].icon + "@2x.png")
-      document.getElementById("temp-value").textContent = Math.round(data.main.feels_like)+" °C";
-      document.getElementById("climate").textContent = data.weather[0].main;
-      document.getElementById("windspeed").textContent = data.wind.speed;
-      document.getElementById("humidity").textContent = data.main.humidity;
-      document.getElementById("pressure").textContent = data.main.pressure;
-
-    })
-  //fetching forecast weather data from "WeatherApi"
+function forecastByCity() {
   fetch(`https://api.weatherapi.com/v1/forecast.json?key=781388e6fe3541f8b2e122014231402&q=${loc.innerHTML.trim()}&days=6&aqi=no&alerts=no`)
     .then(response => response.json())
     .then(data => {
@@ -90,6 +89,25 @@ function UpdateValues() {
       }
     })
 }
+
+function UpdateLive() {
+  fetch(`https://api.openweathermap.org/data/2.5/weather?q=${loc.innerHTML.trim()}&units=metric&appid=6fed26cbc5510bbe3eb54a31c98dc61e&lang=en`)
+    .then((Response) => {
+      return Response.json();
+    })
+    .then(data => {
+
+      document.getElementById("climate-icon").setAttribute("src", "https://openweathermap.org/img/wn/" + data.weather[0].icon + "@2x.png")
+      document.getElementById("temp-value").textContent = Math.round(data.main.feels_like) + " °C";
+      document.getElementById("climate").textContent = data.weather[0].main;
+      document.getElementById("windspeed").textContent = data.wind.speed;
+      document.getElementById("humidity").textContent = data.main.humidity;
+      document.getElementById("pressure").textContent = data.main.pressure;
+
+    })
+}
+
+
 // javaScript for SearchBar
 let names = [
   "Afghanistan",
