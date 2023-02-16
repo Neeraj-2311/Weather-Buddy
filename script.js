@@ -6,7 +6,7 @@ let lat;
 let long;
 
 fetchText();
-UpdateValues();
+
 
 // function to take user's string and pass it to wweather api
 function getString() {
@@ -14,6 +14,18 @@ function getString() {
   loc.innerHTML = a.value;
   UpdateValues();
 }
+
+let btn=document.querySelector(".search-btn");
+
+btn.addEventListener("click", function(){
+
+  btn.classList.add("search-btn-click");
+
+  setTimeout(function(){
+    btn.classList.remove("search-btn-click");
+  }, 200)
+
+})
 
 //function to get current city and forecast on the basis of that
 async function fetchText() {
