@@ -8,20 +8,13 @@ let long;
 fetchText();
 
 
-// function to take user's string and pass it to wweather api
-function getString() {
-  let a = document.getElementById("city");
-  loc.innerHTML = a.value;
-  UpdateValues();
-}
+let btn = document.querySelector(".search-btn");
 
-let btn=document.querySelector(".search-btn");
-
-btn.addEventListener("click", function(){
+btn.addEventListener("click", function () {
 
   btn.classList.add("search-btn-click");
 
-  setTimeout(function(){
+  setTimeout(function () {
     btn.classList.remove("search-btn-click");
   }, 200)
 
@@ -79,7 +72,8 @@ function forecastByCoords() {
 }
 
 function forecastByCity() {
-  fetch(`https://api.weatherapi.com/v1/forecast.json?key=781388e6fe3541f8b2e122014231402&q=${loc.innerHTML.trim()}&days=6&aqi=no&alerts=no`)
+  const city = document.getElementById("city").value;
+  fetch(`https://api.weatherapi.com/v1/forecast.json?key=781388e6fe3541f8b2e122014231402&q=${city.trim()}&days=6&aqi=no&alerts=no`)
     .then(response => response.json())
     .then(data => {
       let iter = 0;
@@ -103,19 +97,25 @@ function forecastByCity() {
 }
 
 function UpdateLive() {
-  fetch(`https://api.openweathermap.org/data/2.5/weather?q=${loc.innerHTML.trim()}&units=metric&appid=6fed26cbc5510bbe3eb54a31c98dc61e&lang=en`)
+  const city = document.getElementById("city").value;
+  fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city.trim()}&units=metric&appid=6fed26cbc5510bbe3eb54a31c98dc61e&lang=en`)
     .then((Response) => {
       return Response.json();
     })
     .then(data => {
-
-      document.getElementById("climate-icon").setAttribute("src", "https://openweathermap.org/img/wn/" + data.weather[0].icon + "@2x.png")
-      document.getElementById("temp-value").textContent = Math.round(data.main.feels_like) + " °C";
-      document.getElementById("climate").textContent = data.weather[0].main;
-      document.getElementById("windspeed").textContent = data.wind.speed;
-      document.getElementById("humidity").textContent = data.main.humidity;
-      document.getElementById("pressure").textContent = data.main.pressure;
-
+      console.log(data)
+      if (data.cod == 200) {
+        loc.innerHTML = city;
+        document.getElementById("climate-icon").setAttribute("src", "https://openweathermap.org/img/wn/" + data.weather[0].icon + "@2x.png")
+        document.getElementById("temp-value").textContent = Math.round(data.main.feels_like) + " °C";
+        document.getElementById("climate").textContent = data.weather[0].main;
+        document.getElementById("windspeed").textContent = data.wind.speed;
+        document.getElementById("humidity").textContent = data.main.humidity;
+        document.getElementById("pressure").textContent = data.main.pressure;
+      }
+      else {
+        alert(data.message)
+      }
     })
 }
 
