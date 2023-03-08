@@ -48,7 +48,7 @@ function UpdateValues() {
 
 
 function forecastByCoords() {
-  fetch(`https://api.weatherapi.com/v1/forecast.json?key=781388e6fe3541f8b2e122014231402&q=${lat},${long}&days=6&aqi=no&alerts=no`)
+  fetch(`https://api.weatherapi.com/v1/forecast.json?key=2eced24891d74a47aec80349230803&q=${lat},${long}&days=6&aqi=no&alerts=no`)
     .then(response => response.json())
     .then(data => {
       let iter = 0;
@@ -73,7 +73,7 @@ function forecastByCoords() {
 
 function forecastByCity() {
   const city = document.getElementById("city").value;
-  fetch(`https://api.weatherapi.com/v1/forecast.json?key=781388e6fe3541f8b2e122014231402&q=${city.trim()}&days=6&aqi=no&alerts=no`)
+  fetch(`https://api.weatherapi.com/v1/forecast.json?key=2eced24891d74a47aec80349230803&q=${city.trim()}&days=6&aqi=no&alerts=no`)
     .then(response => response.json())
     .then(data => {
       let iter = 0;
