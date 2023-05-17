@@ -7,9 +7,9 @@ document.querySelector('button').addEventListener('click', function () {
   UpdateLive(curr_location);
 })
 
-fetchText();
+fetchlocation();
 
-async function fetchText() {
+async function fetchlocation() {
   preloadeer.style.display = 'flex';
   let url = 'https://ipinfo.io/json?token=8d516f791022d0';
   let response = await fetch(url);
@@ -26,10 +26,6 @@ function UpdateLive(city) {
     })
     .then(data => {
       if (data.cod == 200) {
-        
-        console.log(data);
-        console.log(data.weather[0].main)
-
         let timezone = data.timezone;
         let sunrise = data.sys.sunrise;
         let sunset = data.sys.sunset;
@@ -46,7 +42,9 @@ function UpdateLive(city) {
         forecast(city);
       }
       else {
+        preloadeer.style.display = 'none';
         alert(data.message)
+        fetchlocation();
       }
     })
 }
@@ -87,7 +85,9 @@ function forecast(city) {
         preloadeer.style.display = 'none';
       }
       else {
+        preloadeer.style.display = 'none';
         alert(data.message);
+        fetchlocation();
       }
     })
 }
