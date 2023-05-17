@@ -1,401 +1,243 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Buddy</title>
 
-    <!--Stylesheet CSS file-->
-    <link rel="stylesheet" href="style.css">
-
-    <!--favicon-->
-    <link rel="shortcut icon" href="images/cloudy.png" type="image/x-icon">
-
-    <!--fontawesome kit-->
+    <!-- favicon -->
+    <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+    
+    <!-- fontawesome link -->
     <script src="https://kit.fontawesome.com/f44356ef2f.js" crossorigin="anonymous"></script>
-
-    <!--google fonts-->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap" rel="stylesheet">
-
-    <!--script file-->
+    
+    <!-- css link -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- bootstrap link -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 </head>
-
 <body>
-    <section id="top-container">
-        <div class="row">
-            <div class="col-1">
-                <h1>Weather Buddy</h1>
-                <p>Your essential guide to check before any trip!</p>
-                <p>Know about the weather of any part of the world while sitting in an another corner.</p>
-                <p>Just search the place in the search box below...</p>
-                <div class="search-bar">
-                    <input type="text" placeholder="Enter a city name..." id="city" />
-                    <button class="search-btn" onclick="UpdateValues()"><i class="fa-solid fa-magnifying-glass"></i></button>
-                </div>
-                <ul class="list"></ul>
-            </div>
-            <div class="col-2">
-                <div class="city-container">
-                    <h1 id="city-value">Delhi</h1>
-                    <img id="climate-icon" src="images/sunny-day.png" alt="climate-icon">
-                </div>
-                <div class="weather-details">
-                    <span id="temp-value">----</span>
-                    <ul class="values-list">
-                        <li><span class="value-text">Weather</span><span>:</span><span id="climate" class="values">
-                                ----</span></li>
-                        <li><span class="value-text">Windspeed</span><span>:</span><span id="windspeed" class="values">
-                                ----</span></li>
-                        <li><span class="value-text">Humidity</span><span>:</span><span id="humidity" class="values">
-                                ----</span></li>
-                        <li><span class="value-text">Pressure</span><span>:</span><span id="pressure" class="values">
-                                ----</span></li>
-                    </ul>
-                </div>
-            </div>
+    <div class="preloader">
+        <div class="preloader-inner">
+            <p>Fetching data..</p>
+            <div class="loader">
+                <div class="item item-1"></div>
+                <div class="item item-2"></div>
+                <div class="item item-3"></div>
+                <div class="item item-4"></div>
+              </div>
         </div>
-    </section>
-    <section id="mid-container">
-        <div class="forecast-section-heading">
-            <img src="images/cloudy.png" alt="cloud-icon">
-            <h2>5-days forecast</h2>
-            <img src="images/down-arrow.png" alt="down-arrow-icon">
-        </div>
-        <div class="mid-flex-container">
-            <div class="day-forecast-container" id="first-day">
-                <div class="day-tags-div">
-                    <p id="date-1">02/02/2023</p>
-                </div>
-                <div class="icon">
-                    <img id="icon-1-1" src="images/sunny-day.png" alt="">
-                </div>
-                <div class="icon">
-                    <img id="icon-1-2" src="images/sunny-day.png" alt="">
-                </div>
-                <div class="icon">
-                    <img id="icon-1-3" src="images/sunny-day.png" alt="">
-                </div>
-                <div class="icon">
-                    <img id="icon-1-4" src="images/sunny-day.png" alt="">
-                </div>
-                <div class="hourly-details-tags">
-                    <p>Time of day</p>
-                    <p>Feels like</p>
-                    <p>Windspeed</p>
-                    <p>Humidity</p>
-                    <p>Pressure</p>
-                    <p>Condition</p>
-                </div>
-                <div class="hourly-details">
-                    <p>Morning</p>
-                    <p id="detail-1-feels-like-1">----</p>
-                    <p id="detail-1-windspeed-1">----</p>
-                    <p id="detail-1-humidity-1">----</p>
-                    <p id="detail-1-pressure-1">----</p>
-                    <p id="detail-1-condition-1">----</p>
-                </div>
-                <div class="hourly-details">
-                    <p>Day</p>
-                    <p id="detail-1-feels-like-2">----</p>
-                    <p id="detail-1-windspeed-2">----</p>
-                    <p id="detail-1-humidity-2">----</p>
-                    <p id="detail-1-pressure-2">----</p>
-                    <p id="detail-1-condition-2">----</p>
-                </div>
-                <div class="hourly-details">
-                    <p>Evening</p>
-                    <p id="detail-1-feels-like-3">----</p>
-                    <p id="detail-1-windspeed-3">----</p>
-                    <p id="detail-1-humidity-3">----</p>
-                    <p id="detail-1-pressure-3">----</p>
-                    <p id="detail-1-condition-3">----</p>
-                </div>
-                <div class="hourly-details">
-                    <p>Night</p>
-                    <p id="detail-1-feels-like-4">----</p>
-                    <p id="detail-1-windspeed-4">----</p>
-                    <p id="detail-1-humidity-4">----</p>
-                    <p id="detail-1-pressure-4">----</p>
-                    <p id="detail-1-condition-4">----</p>
-                </div>
-            </div>
-            <div class="day-forecast-container" id="second-day">
-                <div class="day-tags-div">
-                    <p id="date-2">02/02/2023</p>
-                </div>
-                <div class="icon">
-                    <img id="icon-2-1" src="images/sunny-day.png" alt="">
-                </div>
-                <div class="icon">
-                    <img id="icon-2-2" src="images/sunny-day.png" alt="">
-                </div>
-                <div class="icon">
-                    <img id="icon-2-3" src="images/sunny-day.png" alt="">
-                </div>
-                <div class="icon">
-                    <img id="icon-2-4" src="images/sunny-day.png" alt="">
-                </div>
-                <div class="hourly-details-tags">
-                    <p>Time of day</p>
-                    <p>Feels like</p>
-                    <p>Windspeed</p>
-                    <p>Humidity</p>
-                    <p>Pressure</p>
-                    <p>Condition</p>
-                </div>
-                <div class="hourly-details">
-                    <p>Morning</p>
-                    <p id="detail-2-feels-like-1">----</p>
-                    <p id="detail-2-windspeed-1">----</p>
-                    <p id="detail-2-humidity-1">----</p>
-                    <p id="detail-2-pressure-1">----</p>
-                    <p id="detail-2-condition-1">----</p>
-                </div>
-                <div class="hourly-details">
-                    <p>Day</p>
-                    <p id="detail-2-feels-like-2">----</p>
-                    <p id="detail-2-windspeed-2">----</p>
-                    <p id="detail-2-humidity-2">----</p>
-                    <p id="detail-2-pressure-2">----</p>
-                    <p id="detail-2-condition-2">----</p>
-                </div>
-                <div class="hourly-details">
-                    <p>Evening</p>
-                    <p id="detail-2-feels-like-3">----</p>
-                    <p id="detail-2-windspeed-3">----</p>
-                    <p id="detail-2-humidity-3">----</p>
-                    <p id="detail-2-pressure-3">----</p>
-                    <p id="detail-2-condition-3">----</p>
-                </div>
-                <div class="hourly-details">
-                    <p>Night</p>
-                    <p id="detail-2-feels-like-4">----</p>
-                    <p id="detail-2-windspeed-4">----</p>
-                    <p id="detail-2-humidity-4">----</p>
-                    <p id="detail-2-pressure-4">----</p>
-                    <p id="detail-2-condition-4">----</p>
-                </div>
-            </div>
-            <div class="day-forecast-container" id="third-day">
-                <div class="day-tags-div">
-                    <p id="date-3">02/02/2023</p>
-                </div>
-                <div class="icon">
-                    <img id="icon-3-1" src="images/sunny-day.png" alt="">
-                </div>
-                <div class="icon">
-                    <img id="icon-3-2" src="images/sunny-day.png" alt="">
-                </div>
-                <div class="icon">
-                    <img id="icon-3-3" src="images/sunny-day.png" alt="">
-                </div>
-                <div class="icon">
-                    <img id="icon-3-4" src="images/sunny-day.png" alt="">
-                </div>
-                <div class="hourly-details-tags">
-                    <p>Time of day</p>
-                    <p>Feels like</p>
-                    <p>Windspeed</p>
-                    <p>Humidity</p>
-                    <p>Pressure</p>
-                    <p>Condition</p>
-                </div>
-                <div class="hourly-details">
-                    <p>Morning</p>
-                    <p id="detail-3-feels-like-1">----</p>
-                    <p id="detail-3-windspeed-1">----</p>
-                    <p id="detail-3-humidity-1">----</p>
-                    <p id="detail-3-pressure-1">----</p>
-                    <p id="detail-3-condition-1">----</p>
-                </div>
-                <div class="hourly-details">
-                    <p>Day</p>
-                    <p id="detail-3-feels-like-2">----</p>
-                    <p id="detail-3-windspeed-2">----</p>
-                    <p id="detail-3-humidity-2">----</p>
-                    <p id="detail-3-pressure-2">----</p>
-                    <p id="detail-3-condition-2">----</p>
-                </div>
-                <div class="hourly-details">
-                    <p>Evening</p>
-                    <p id="detail-3-feels-like-3">----</p>
-                    <p id="detail-3-windspeed-3">----</p>
-                    <p id="detail-3-humidity-3">----</p>
-                    <p id="detail-3-pressure-3">----</p>
-                    <p id="detail-3-condition-3">----</p>
-                </div>
-                <div class="hourly-details">
-                    <p>Night</p>
-                    <p id="detail-3-feels-like-4">----</p>
-                    <p id="detail-3-windspeed-4">----</p>
-                    <p id="detail-3-humidity-4">----</p>
-                    <p id="detail-3-pressure-4">----</p>
-                    <p id="detail-3-condition-4">----</p>
-                </div>
-            </div>
-            <div class="day-forecast-container" id="fourth-day">
-                <div class="day-tags-div">
-                    <p id="date-4">02/02/2023</p>
-                </div>
-                <div class="icon">
-                    <img id="icon-4-1" src="images/sunny-day.png" alt="">
-                </div>
-                <div class="icon">
-                    <img id="icon-4-2" src="images/sunny-day.png" alt="">
-                </div>
-                <div class="icon">
-                    <img id="icon-4-3" src="images/sunny-day.png" alt="">
-                </div>
-                <div class="icon">
-                    <img id="icon-4-4" src="images/sunny-day.png" alt="">
-                </div>
-                <div class="hourly-details-tags">
-                    <p>Time of day</p>
-                    <p>Feels like</p>
-                    <p>Windspeed</p>
-                    <p>Humidity</p>
-                    <p>Pressure</p>
-                    <p>Condition</p>
-                </div>
-                <div class="hourly-details">
-                    <p>Morning</p>
-                    <p id="detail-4-feels-like-1">----</p>
-                    <p id="detail-4-windspeed-1">----</p>
-                    <p id="detail-4-humidity-1">----</p>
-                    <p id="detail-4-pressure-1">----</p>
-                    <p id="detail-4-condition-1">----</p>
-                </div>
-                <div class="hourly-details">
-                    <p>Day</p>
-                    <p id="detail-4-feels-like-2">----</p>
-                    <p id="detail-4-windspeed-2">----</p>
-                    <p id="detail-4-humidity-2">----</p>
-                    <p id="detail-4-pressure-2">----</p>
-                    <p id="detail-4-condition-2">----</p>
-                </div>
-                <div class="hourly-details">
-                    <p>Evening</p>
-                    <p id="detail-4-feels-like-3">----</p>
-                    <p id="detail-4-windspeed-3">----</p>
-                    <p id="detail-4-humidity-3">----</p>
-                    <p id="detail-4-pressure-3">----</p>
-                    <p id="detail-4-condition-3">----</p>
-                </div>
-                <div class="hourly-details">
-                    <p>Night</p>
-                    <p id="detail-4-feels-like-4">----</p>
-                    <p id="detail-4-windspeed-4">----</p>
-                    <p id="detail-4-humidity-4">----</p>
-                    <p id="detail-4-pressure-4">----</p>
-                    <p id="detail-4-condition-4">----</p>
-                </div>
-            </div>
-            <div class="day-forecast-container" id="fifth-day">
-                <div class="day-tags-div">
-                    <p id="date-5">02/02/2023</p>
-                </div>
-                <div class="icon">
-                    <img id="icon-5-1" src="images/sunny-day.png" alt="">
-                </div>
-                <div class="icon">
-                    <img id="icon-5-2" src="images/sunny-day.png" alt="">
-                </div>
-                <div class="icon">
-                    <img id="icon-5-3" src="images/sunny-day.png" alt="">
-                </div>
-                <div class="icon">
-                    <img id="icon-5-4" src="images/sunny-day.png" alt="">
-                </div>
-                <div class="hourly-details-tags">
-                    <p>Time of day</p>
-                    <p>Feels like</p>
-                    <p>Windspeed</p>
-                    <p>Humidity</p>
-                    <p>Pressure</p>
-                    <p>Condition</p>
-                </div>
-                <div class="hourly-details">
-                    <p>Morning</p>
-                    <p id="detail-5-feels-like-1">----</p>
-                    <p id="detail-5-windspeed-1">----</p>
-                    <p id="detail-5-humidity-1">----</p>
-                    <p id="detail-5-pressure-1">----</p>
-                    <p id="detail-5-condition-1">----</p>
-                </div>
-                <div class="hourly-details">
-                    <p>Day</p>
-                    <p id="detail-5-feels-like-2">----</p>
-                    <p id="detail-5-windspeed-2">----</p>
-                    <p id="detail-5-humidity-2">----</p>
-                    <p id="detail-5-pressure-2">----</p>
-                    <p id="detail-5-condition-2">----</p>
-                </div>
-                <div class="hourly-details">
-                    <p>Evening</p>
-                    <p id="detail-5-feels-like-3">----</p>
-                    <p id="detail-5-windspeed-3">----</p>
-                    <p id="detail-5-humidity-3">----</p>
-                    <p id="detail-5-pressure-3">----</p>
-                    <p id="detail-5-condition-3">----</p>
-                </div>
-                <div class="hourly-details">
-                    <p>Night</p>
-                    <p id="detail-5-feels-like-4">----</p>
-                    <p id="detail-5-windspeed-4">----</p>
-                    <p id="detail-5-humidity-4">----</p>
-                    <p id="detail-5-pressure-4">----</p>
-                    <p id="detail-5-condition-4">----</p>
-                </div>
-            </div>
-        </div>
-        <div class="parameters">
-            <h4>Measurement</h4>
-            <div class="measurement-box">
-                <div class="measures">
-                    <p>Feels like</p>
-                    <p>Windspeed</p>
-                    <p>Humidity</p>
-                    <p>Pressure</p>
-                </div>
-                <div class="sign">
-                    <p> --- </p>
-                    <p> --- </p>
-                    <p> --- </p>
-                    <p> --- </p>
-                </div>
-                <div class="units">
-                    <p>temperature (in °C)</p>
-                    <p>in km/h</p>
-                    <p>g/kg</p>
-                    <p>in "Hg (inch mercury)</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section id="bottom-container">
-        <div class="connect-text">
-            <p>You have reached the end of this page!</p>
-            <p>Liked my content? Want to collaborate on projects in future?...</p>
-            <p>...feel free to connect with me on Social.</p>
-        </div>
-        <a class="footer-link" href="https://www.linkedin.com/" target="_main"><i
-                class="fa-brands fa-linkedin"></i><span> LinkedIn</span></a>
-        <span>|</span>
-        <a class="footer-link" href="https://github.com/Neeraj-2311/" target="_main"><i
-                class="fa-brands fa-github"></i><span> Github</span></a>
-        <span>|</span>
-        <a class="footer-link" href="https://www.instagram.com/neeraj_sh2311/" target="_main"><i class="fa-brands
-                fa-square-instagram"></i><span> Instagram</span></a>
-        <p class="copyright">© Copyright Neeraj</p>
-    </section>
+    </div>
 
-    <!--script -->
+    <div class="main-container">
+        <div class="container">
+            <div class="current-details">
+                <h3>Location</h3>
+                <p>Sunday 30 August</p>
+            </div>
+            <div class="search-bar">
+                <input type="text" placeholder="Enter a city">
+                <button>Go</button>
+            </div>
+        </div>
+        <hr>
+        <div class="row row-gap-4 align-items-center">
+            <div class="col-md-6 current-weather-container-1 col-12">
+                <img class="current-weather-img" src="./images/weather-icon.png" alt="icon">
+                <div>
+                    <p class="current-temp">20°c</p>
+                    <p class="current-condition">mostly sunny</p>
+                </div>
+            </div>
+            <div class="col-md-6 text-center current-weather-container-2 col-12">
+                <div class="row">
+                    <div class="col">
+                        <p class="current-high-temp">14°c</p>
+                        <p>High</p>
+                    </div>
+                    <div class="col">
+                        <p class="current-windspeed">7mph</p>
+                        <p>Wind</p>
+                    </div>
+                    <div class="col">
+                        <p class="current-sunrise">20:57</p>
+                        <p>Sunrise</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <p class="current-low-temp">14°c</p>
+                        <p>low</p>
+                    </div>
+                    <div class="col">
+                        <p class="current-feelslike">0%</p>
+                        <p>Feelslike</p>
+                    </div>
+                    <div class="col">
+                        <p class="current-sunset">20:57</p>
+                        <p>Sunset</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="container todays-weather-details">
+            <p>Today's Weather</p>
+            <div class="row row-gap-4 text-center align-items-center">
+                <div class="col-sm-2 col-3">
+                    <p class="today-time-1">3am</p>
+                    <img class="today-icon-1" src="./images/weather-icon.png" alt="icon">
+                    <p class="today-temp-1">14°c</p>
+                </div>
+                <div class="col-sm-2 col-3">
+                    <p class="today-time-2">3am</p>
+                    <img class="today-icon-2" src="./images/weather-icon.png" alt="icon">
+                    <p class="today-temp-2">14°c</p>
+                </div>
+                <div class="col-sm-2 col-3">
+                    <p class="today-time-3">3am</p>
+                    <img class="today-icon-3" src="./images/weather-icon.png" alt="icon">
+                    <p class="today-temp-3">14°c</p>
+                </div>
+                <div class="col-sm-2 col-3">
+                    <p class="today-time-4">3am</p>
+                    <img class="today-icon-4" src="./images/weather-icon.png" alt="icon">
+                    <p class="today-temp-4">14°c</p>
+                </div>
+                <div class="col-sm-2 col-3">
+                    <p class="today-time-5">3am</p>
+                    <img class="today-icon-5" src="./images/weather-icon.png" alt="icon">
+                    <p class="today-temp-5">14°c</p>
+                </div>
+                <div class="col-sm-2 col-3">
+                    <p class="today-time-6">3am</p>
+                    <img class="today-icon-6" src="./images/weather-icon.png" alt="icon">
+                    <p class="today-temp-6">14°c</p>
+                </div>
+                <div class="col-sm-2 col-3">
+                    <p class="today-time-7">3am</p>
+                    <img class="today-icon-7" src="./images/weather-icon.png" alt="icon">
+                    <p class="today-temp-7">14°c</p>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="container forecast-container">
+            <p>Next 4 days</p>
+            <div class="row text-center align-items-center">
+                <div class="col">
+                    <p class="forecast-1-day">Tue</p>
+                    <p class="forecast-1-date">30/7</p>
+                </div>
+                <div class="col">
+                    <img class="forecast-1-icon" src="./images/weather-icon.png" alt="icon">
+                </div>
+                <div class="col">
+                    <p class="forecast-1-low-temp">10°c</p>
+                    <p>Low</p>
+                </div>
+                <div class="col">
+                    <p class="forecast-1-high-temp">21°c</p>
+                    <p>High</p>
+                </div>
+                <div class="col">
+                    <p class="forecast-1-wind">12mph</p>
+                    <p>wind</p>
+                </div>
+                <div class="col">
+                    <p class="forecast-1-weather">0%</p>
+                    <p>Weather</p>
+                </div>
+            </div>
+            <div class="row text-center align-items-center">
+                <div class="col">
+                    <p class="forecast-2-day">Tue</p>
+                    <p class="forecast-2-date">30/7</p>
+                </div>
+                <div class="col">
+                    <img class="forecast-2-icon" src="./images/weather-icon.png" alt="icon">
+                </div>
+                <div class="col">
+                    <p class="forecast-2-low-temp">10°c</p>
+                    <p>Low</p>
+                </div>
+                <div class="col">
+                    <p class="forecast-2-high-temp">21°c</p>
+                    <p>High</p>
+                </div>
+                <div class="col">
+                    <p class="forecast-2-wind">12mph</p>
+                    <p>wind</p>
+                </div>
+                <div class="col">
+                    <p class="forecast-2-weather">0%</p>
+                    <p>Weather</p>
+                </div>
+            </div>
+            <div class="row text-center align-items-center">
+                <div class="col">
+                    <p class="forecast-3-day">Tue</p>
+                    <p class="forecast-3-date">30/7</p>
+                </div>
+                <div class="col">
+                    <img class="forecast-3-icon" src="./images/weather-icon.png" alt="icon">
+                </div>
+                <div class="col">
+                    <p class="forecast-3-low-temp">10°c</p>
+                    <p>Low</p>
+                </div>
+                <div class="col">
+                    <p class="forecast-3-high-temp">21°c</p>
+                    <p>High</p>
+                </div>
+                <div class="col">
+                    <p class="forecast-3-wind">12mph</p>
+                    <p>wind</p>
+                </div>
+                <div class="col">
+                    <p class="forecast-3-weather">0%</p>
+                    <p>Weather</p>
+                </div>
+            </div>
+            <div class="row text-center align-items-center">
+                <div class="col">
+                    <p class="forecast-4-day">Tue</p>
+                    <p class="forecast-4-date">30/7</p>
+                </div>
+                <div class="col">
+                    <img class="forecast-4-icon" src="./images/weather-icon.png" alt="icon">
+                </div>
+                <div class="col">
+                    <p class="forecast-4-low-temp">10°c</p>
+                    <p>Low</p>
+                </div>
+                <div class="col">
+                    <p class="forecast-4-high-temp">21°c</p>
+                    <p>High</p>
+                </div>
+                <div class="col">
+                    <p class="forecast-4-wind">12mph</p>
+                    <p>wind</p>
+                </div>
+                <div class="col">
+                    <p class="forecast-4-weather">0%</p>
+                    <p>Weather</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="socials-container">
+            <a class="social" href="https://linkedin.com/in/neeraj-b2b31b214"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+            <a class="social" href="https://github.com/Neeraj-2311"><i class="fa-brands fa-github"></i> Github</a>
+            <a class="social" href="mailto:neersh2311@gmail.com"><i class="fa-solid fa-envelope"></i> Email</a>
+        </div>
+        <p>Made with 🧡 | Copyright © 2023 - <a href="https://github.com/Neeraj-2311" target="_blank">Neeraj.</a></p>
+    </footer>
+    <script src="https://momentjs.com/downloads/moment.js"></script>
     <script src="script.js"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 </body>
-
 </html>
