@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Buddy</title>
+
+    <!-- favicon -->
+    <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+    
+    <!-- fontawesome link -->
+    <script src="https://kit.fontawesome.com/f44356ef2f.js" crossorigin="anonymous"></script>
+    
+    <!-- css link -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- bootstrap link -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+</head>
+<body>
+    <div class="preloader">
+        <div class="preloader-inner">
+            <p>Fetching data..</p>
+            <div class="loader">
+                <div class="item item-1"></div>
+                <div class="item item-2"></div>
+                <div class="item item-3"></div>
+                <div class="item item-4"></div>
+              </div>
+        </div>
+    </div>
+
+    <div class="main-container">
+        <div class="container">
+            <div class="current-details">
+                <h3>Location</h3>
+                <p>Sunday 30 August</p>
+            </div>
+            <div class="search-bar">
+                <input type="text" placeholder="Enter a city">
+                <button>Go</button>
+            </div>
+        </div>
+        <hr>
+        <div class="row row-gap-4 align-items-center">
+            <div class="col-md-6 current-weather-container-1 col-12">
+                <img class="current-weather-img" src="./images/weather-icon.png" alt="icon">
+                <div>
+                    <p class="current-temp">20°c</p>
+                    <p class="current-condition">mostly sunny</p>
+                </div>
+            </div>
+            <div class="col-md-6 text-center current-weather-container-2 col-12">
+                <div class="row">
+                    <div class="col">
+                        <p class="current-high-temp">14°c</p>
+                        <p>High</p>
+                    </div>
+                    <div class="col">
+                        <p class="current-windspeed">7mph</p>
+                        <p>Wind</p>
+                    </div>
+                    <div class="col">
+                        <p class="current-sunrise">20:57</p>
+                        <p>Sunrise</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <p class="current-low-temp">14°c</p>
+                        <p>low</p>
+                    </div>
+                    <div class="col">
+                        <p class="current-feelslike">0%</p>
+                        <p>Feelslike</p>
+                    </div>
+                    <div class="col">
+                        <p class="current-sunset">20:57</p>
+                        <p>Sunset</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="container todays-weather-details">
+            <p>Today's Weather</p>
+            <div class="row row-gap-4 text-center align-items-center">
+                <div class="col-sm-2 col-3">
+                    <p class="today-time-1">3am</p>
+                    <img class="today-icon-1" src="./images/weather-icon.png" alt="icon">
+                    <p class="today-temp-1">14°c</p>
+                </div>
+                <div class="col-sm-2 col-3">
+                    <p class="today-time-2">3am</p>
+                    <img class="today-icon-2" src="./images/weather-icon.png" alt="icon">
+                    <p class="today-temp-2">14°c</p>
+                </div>
+                <div class="col-sm-2 col-3">
+                    <p class="today-time-3">3am</p>
+                    <img class="today-icon-3" src="./images/weather-icon.png" alt="icon">
+                    <p class="today-temp-3">14°c</p>
+                </div>
+                <div class="col-sm-2 col-3">
+                    <p class="today-time-4">3am</p>
+                    <img class="today-icon-4" src="./images/weather-icon.png" alt="icon">
+                    <p class="today-temp-4">14°c</p>
+                </div>
+                <div class="col-sm-2 col-3">
+                    <p class="today-time-5">3am</p>
+                    <img class="today-icon-5" src="./images/weather-icon.png" alt="icon">
+                    <p class="today-temp-5">14°c</p>
+                </div>
+                <div class="col-sm-2 col-3">
+                    <p class="today-time-6">3am</p>
+                    <img class="today-icon-6" src="./images/weather-icon.png" alt="icon">
+                    <p class="today-temp-6">14°c</p>
+                </div>
+                <div class="col-sm-2 col-3">
+                    <p class="today-time-7">3am</p>
+                    <img class="today-icon-7" src="./images/weather-icon.png" alt="icon">
+                    <p class="today-temp-7">14°c</p>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="container forecast-container">
+            <p>Next 4 days</p>
+            <div class="row text-center align-items-center">
+                <div class="col">
+                    <p class="forecast-1-day">Tue</p>
+                    <p class="forecast-1-date">30/7</p>
+                </div>
+                <div class="col">
+                    <img class="forecast-1-icon" src="./images/weather-icon.png" alt="icon">
+                </div>
+                <div class="col">
+                    <p class="forecast-1-low-temp">10°c</p>
+                    <p>Low</p>
+                </div>
+                <div class="col">
+                    <p class="forecast-1-high-temp">21°c</p>
+                    <p>High</p>
+                </div>
+                <div class="col">
+                    <p class="forecast-1-wind">12mph</p>
+                    <p>wind</p>
+                </div>
+                <div class="col">
+                    <p class="forecast-1-weather">0%</p>
+                    <p>Weather</p>
+                </div>
+            </div>
+            <div class="row text-center align-items-center">
+                <div class="col">
+                    <p class="forecast-2-day">Tue</p>
+                    <p class="forecast-2-date">30/7</p>
+                </div>
+                <div class="col">
+                    <img class="forecast-2-icon" src="./images/weather-icon.png" alt="icon">
+                </div>
+                <div class="col">
+                    <p class="forecast-2-low-temp">10°c</p>
+                    <p>Low</p>
+                </div>
+                <div class="col">
+                    <p class="forecast-2-high-temp">21°c</p>
+                    <p>High</p>
+                </div>
+                <div class="col">
+                    <p class="forecast-2-wind">12mph</p>
+                    <p>wind</p>
+                </div>
+                <div class="col">
+                    <p class="forecast-2-weather">0%</p>
+                    <p>Weather</p>
+                </div>
+            </div>
+            <div class="row text-center align-items-center">
+                <div class="col">
+                    <p class="forecast-3-day">Tue</p>
+                    <p class="forecast-3-date">30/7</p>
+                </div>
+                <div class="col">
+                    <img class="forecast-3-icon" src="./images/weather-icon.png" alt="icon">
+                </div>
+                <div class="col">
+                    <p class="forecast-3-low-temp">10°c</p>
+                    <p>Low</p>
+                </div>
+                <div class="col">
+                    <p class="forecast-3-high-temp">21°c</p>
+                    <p>High</p>
+                </div>
+                <div class="col">
+                    <p class="forecast-3-wind">12mph</p>
+                    <p>wind</p>
+                </div>
+                <div class="col">
+                    <p class="forecast-3-weather">0%</p>
+                    <p>Weather</p>
+                </div>
+            </div>
+            <div class="row text-center align-items-center">
+                <div class="col">
+                    <p class="forecast-4-day">Tue</p>
+                    <p class="forecast-4-date">30/7</p>
+                </div>
+                <div class="col">
+                    <img class="forecast-4-icon" src="./images/weather-icon.png" alt="icon">
+                </div>
+                <div class="col">
+                    <p class="forecast-4-low-temp">10°c</p>
+                    <p>Low</p>
+                </div>
+                <div class="col">
+                    <p class="forecast-4-high-temp">21°c</p>
+                    <p>High</p>
+                </div>
+                <div class="col">
+                    <p class="forecast-4-wind">12mph</p>
+                    <p>wind</p>
+                </div>
+                <div class="col">
+                    <p class="forecast-4-weather">0%</p>
+                    <p>Weather</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="socials-container">
+            <a class="social" href="https://linkedin.com/in/neeraj-b2b31b214"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+            <a class="social" href="https://github.com/Neeraj-2311"><i class="fa-brands fa-github"></i> Github</a>
+            <a class="social" href="mailto:neersh2311@gmail.com"><i class="fa-solid fa-envelope"></i> Email</a>
+        </div>
+        <p>Made with 🧡 | Copyright © 2023 - <a href="https://github.com/Neeraj-2311" target="_blank">Neeraj.</a></p>
+    </footer>
+    <script src="https://momentjs.com/downloads/moment.js"></script>
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+</body>
+</html>
