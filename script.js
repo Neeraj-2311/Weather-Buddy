@@ -54,7 +54,7 @@ function forecast(city) {
     .then(response => response.json())
     .then(data => {
       if (data.cod == '200') {
-        let found = 0;
+        let found = undefined;
         let obj;
         for (let i = 1; i <= 7; i++) {
           if (data.list[i - 1].dt_txt.substring(11, 16) == '03:00') {
